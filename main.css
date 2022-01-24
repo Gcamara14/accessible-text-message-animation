@@ -16,7 +16,12 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #FFF;
 }
-.messages {
+
+.reduced-motion .messages-visible, .messages-visible{
+  display: none;
+}
+
+.messages, .messages-visible {
   overflow: auto;
   width: 100vw;
   max-height: 100vh;
@@ -73,4 +78,17 @@ body {
 .bubble .loading b {
   display: inline-block;
   color: rgba(0,0,0,.5);
+}
+
+
+/* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+@media (prefers-reduced-motion) {
+  .messages{
+    display: none;
+  }
+
+  .reduced-motion .messages-visible, .messages-visible{
+    display: block;
+  }
+
 }
